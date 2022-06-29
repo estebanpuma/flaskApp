@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
     <h1>{% block title %} Ingresar voltaje {% endblock %}</h1>
 
     <form method="POST">
-        <div class="form-group">
+        <div class="form-containerv">
             <label for="hours">Hora</label>
             <select id="hours" name="hours" class="form-control" placeholder="Selecciona" >
                 
@@ -14,22 +17,29 @@
             </select>
         </div>
 
-        <div >
+        <div class="form-containerv">
             <label for="v1">V1</label>
-            <input type="number" name="v1" min="0" max="230" step="1">
+            <input type="number" name="v1" min="0" max="230" step="1" minlength="1" maxlength="3">
             
             <label for="v2">V2</label>
-            <input type="number" name="v2" min="0" max="230" step="1">
+            <input type="number" name="v2" min="0" max="230" step="1" minlength="1" maxlength="3">
 
             <label for="v3">V3</label>
-            <input type="number" name="v3" min="0" max="230" step="1" value="{{ request.form['content'] }}">
+            <input type="number" name="v3" min="0" max="230" step="1" minlength="1" maxlength="3">
 
         </div>
 
-        <div class="form-group">
-            <button class="btn btn-primary" type="submit">
+
+        <div class="btn-container">
+            <button class="btn btn-primary btng" type="submit">
                 Guardar
             </button>
+        
+            <a href="{{ url_for('voltaje') }}">
+                <div class="btn btn-primary" >
+                    Regresar
+                </div>
+            </a>
         </div>
 
     </form>

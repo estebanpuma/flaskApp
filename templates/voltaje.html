@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
 
+
+
+
 {% block content %}
-    <h1>{% block title %} Voltaje {% endblock %} </h1>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+
+    <div class="header-content">
+        <h1>{% block title %} Voltaje {% endblock %} </h1>
+        <a href="{{ url_for('create')}}">
+            <button class="btn btn-primary">Registrar</button>
+        </a>
+    </div>
+    
 
     <table class="table">
         <thead>
@@ -34,20 +47,7 @@
         </tbody>
     </table>
 
-    <div>
-        <p>Hora de las horas</p>
-    </div>
 
-    <div>
-        {% for h in horas %}
-            <p>{{h[0]}}</p>
-        
-        {% endfor %}
-        <p>ahora vlidate</p>
-        {% for v in validate %}
-            <p>{{v[0]}}</p>
-        
-        {% endfor %}
-    </div>
+
 
 {% endblock %}

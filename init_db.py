@@ -11,10 +11,6 @@ with open('schema.sql') as f:
 print('leyo')
 cur = connection.cursor()
 
-cur.execute('INSERT INTO voltajes (hora, v1, v2, v3) VALUES(?,?,?,?)',
-            ('00:00', 210, 220, 222)
-            )
-
 
 connection.commit()
 connection.close()

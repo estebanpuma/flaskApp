@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-danger">{{ message }}</div>
+    {% endfor %}
+    <h1>{% block title %} Ingresar datos {% endblock %}</h1>
+
+    <form method="POST">
+        <div class="form-containerv">
+            <label for="hours">Hora</label>
+            <select id="hours" name="hours" class="form-control" aria-placeholder="selecciona" >
+                
+                    {% for h in hr %}
+                        <option value="{{ h }}">{{ h }}</option>
+                    {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-containerv">
+            <label for="fil1">Filtro U1</label>
+            <input type="number" name="fil1" min="0" max="16" step="0.1" minlength="1" maxlength="4">
+            
+            <label for="flu1">Flujometro U1</label>
+            <input type="number" name="flu1" min="0" max="50" step="0.1" minlength="1" maxlength="4">
+
+            <label for="inter1">Intercambiador U1</label>
+            <input type="number" name="inter1" min="0" max="2" step="0.1" minlength="1" maxlength="4">
+
+            <label for="fil2">Filtro U2</label>
+            <input type="number" name="fil2" min="0" max="16" step="0.1" minlength="1" maxlength="4">
+            
+            <label for="flu2">Flujometro U2</label>
+            <input type="number" name="flu2" min="0" max="50" step="0.1" minlength="1" maxlength="4">
+
+            <label for="inter2">Intercambiador U2</label>
+            <input type="number" name="inter2" min="0" max="2" step="0.1" minlength="1" maxlength="4">
+
+        </div>
+
+
+        <div class="btn-container">
+            <button class="btn btn-primary btng" type="submit">
+                Guardar
+            </button>
+        
+            <a href="{{ url_for('refrigeracion') }}">
+                <div class="btn btn-primary" >
+                    Regresar
+                </div>
+            </a>
+        </div>
+
+    </form>
+
+{% endblock %}

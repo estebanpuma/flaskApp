@@ -4,3 +4,32 @@
 h1 {
     color: rgb(61, 61, 203);
 }
+
+.header-content{
+    display: flex;
+    flex-direction: row;
+}
+
+.header-content a{
+    align-self: center;
+    justify-self: end;
+    margin-left: auto;
+    margin-right: 0;
+    
+}
+
+.form-containerv{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.btn-container{
+   
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 40px auto;
+}
+
