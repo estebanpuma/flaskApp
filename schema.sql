@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS voltajes;
+
+CREATE TABLE voltajes(
+    hora TEXT PRIMARY KEY,
+    v1 INTEGER NOT NULL,
+    v2 INTEGER NOT NULL,
+    v3 INTEGER NOT NULL
+
+);

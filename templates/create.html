@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Ingresar voltaje {% endblock %}</h1>
+
+    <form method="POST">
+        <div class="form-group">
+            <label for="hours">Hora</label>
+            <select id="hours" name="hours" class="form-control" placeholder="Selecciona" >
+                
+                    {% for hm in hhmm %}
+                        <option value="{{ hm }}">{{ hm }}</option>
+                    {% endfor %}
+            </select>
+        </div>
+
+        <div >
+            <label for="v1">V1</label>
+            <input type="number" name="v1" min="0" max="230" step="1">
+            
+            <label for="v2">V2</label>
+            <input type="number" name="v2" min="0" max="230" step="1">
+
+            <label for="v3">V3</label>
+            <input type="number" name="v3" min="0" max="230" step="1" value="{{ request.form['content'] }}">
+
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">
+                Guardar
+            </button>
+        </div>
+
+    </form>
+
+{% endblock %}

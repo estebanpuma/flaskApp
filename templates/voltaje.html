@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Voltaje {% endblock %} </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Hora</th>
+                <th scope="col">V1</th>
+                <th scope="col">V3</th>
+                <th scope="col">V2</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for hm in hhmm %}
+                <tr>
+                    <th>{{hm}}</th>
+                        {% for voltaje in voltajes %}
+                            {% if voltaje['hora'] == hm %}
+                            <td>{{ voltaje['v1'] }}</td>
+                            <td>{{ voltaje['v2'] }}</td>
+                            <td>{{ voltaje['v3'] }}</td>
+                            {% endif %}
+                        {% endfor %}
+                </tr>
+                
+
+            {% endfor %}
+
+
+            
+        </tbody>
+    </table>
+
+    <div>
+        <p>Hora de las horas</p>
+    </div>
+
+    <div>
+        {% for h in horas %}
+            <p>{{h[0]}}</p>
+        
+        {% endfor %}
+        <p>ahora vlidate</p>
+        {% for v in validate %}
+            <p>{{v[0]}}</p>
+        
+        {% endfor %}
+    </div>
+
+{% endblock %}
