@@ -56,5 +56,10 @@
             </tbody>
         </table>
     </div>
+    <form action="{{ url_for('resetR')}}" method="POST">
+        <input type="submit" value="Reiniciar tabla"
+                class="btn btn-danger btn-sm"
+                onclick="return confirm('Are you sure you want to delete this post?')">
+    </form>
 
 {% endblock %}

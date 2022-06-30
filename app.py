@@ -151,3 +151,22 @@ def createRef():
 
 
     return render_template('createRef.html', hr = hr)
+
+
+@app.route('/resetR', methods=('POST',))
+def resetR():
+    conn = get_db_connection()
+    conn.execute('DELETE FROM refrigeracion')
+    conn.commit()
+    conn.close()
+    flash('tabla reiniciada')
+    return render_template('refrigeracion.html')
+
+@app.route('/resetV', methods=('POST',))
+def resetV():
+    conn = get_db_connection()
+    conn.execute('DELETE FROM voltajes')
+    conn.commit()
+    conn.close()
+    flash('tabla reiniciada')
+    return render_template('voltaje.html')
